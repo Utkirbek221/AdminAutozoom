@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router";
-import logo from "../../public/IMG/logo.png";
+import logo from "/IMG/logo.png";
 import { FaHome } from "react-icons/fa";
 import { TbBrandSketch, TbBrandSlack } from "react-icons/tb";
 import { SlLocationPin } from "react-icons/sl";
@@ -18,11 +18,11 @@ export default function Sidebar({ isMenuOpen }) {
     return (
         <div className="bg-[#ccd8fd] min-h-full rounded-[8px] w-full flex flex-col">
             <div className="p-3">
-                <Link to={"/home"} className={isMenuOpen ? "duration-300  flex items-center justify-center gap-5 bg-[#FFF] p-2 rounded-[8px] mb-15 h-[80px]" : "duration-300  flex items-center justify-start gap-5 bg-[#FFF] p-2 rounded-[8px] mb-15 h-[80px]"}>
-                    <div className="min-w-[45px] min-h-[50px] overflow-hidden flex items-center justify-center">
-                        <img src={logo} alt="" className="min-w-[110px] min-h-[80px] object-cover" />
+                <Link to={"/home"} className={isMenuOpen ? "duration-300  flex items-center justify-center gap-5 bg-[#222222] text-[#fff] p-2 rounded-[8px] mb-15 h-[80px]" : "duration-300  flex items-center justify-start gap-5 bg-[#222222] text-[#fff] p-2 rounded-[8px] mb-15 h-[80px]"}>
+                    <div className="w-[45px] h-[50px] overflow-hidden flex items-center justify-center bg-[#fff] rounded-[8px]">
+                        <img src={logo} alt="" className="min-w-[110px] min-h-[80px] object-cover " />
                     </div>
-                    <h1 className={isMenuOpen ? "hidden" : "font-[900] text-xl"}>AdminAutozoom</h1>
+                    <h1 className={isMenuOpen ? "hidden" : "font-[900] text-xl mr-4"}>AdminAutozoom</h1>
                 </Link>
                 <div>
                     <NavLink className={isMenuOpen ? linkClasses2 : linkClasses} to={"/home/dashboard"}>

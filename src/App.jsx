@@ -15,7 +15,7 @@ function App() {
   const token = localStorage.getItem("token");
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: "/",
       element: token ? <Navigate to="/home" /> : <Login />,
       errorElement: <ErrorPage />,
     },
@@ -27,6 +27,7 @@ function App() {
         {
           path: "/home",
           element: <Home />
+          // element: token ? <Home /> : <Navigate to="/" /> ,
         },
         {
           path: "/home/dashboard",

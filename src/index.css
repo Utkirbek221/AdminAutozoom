@@ -1,6 +1,8 @@
 @import "tailwindcss";
-
-
 *{
     font-family: 'Comfortaa', serif;
+}
+th,td{
+    padding: 10px;
+    border: 1px solid #ddd;
 }

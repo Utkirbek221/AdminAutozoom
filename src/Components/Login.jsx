@@ -23,8 +23,8 @@ export default function Login() {
             .then((data) => {
                 // console.log(data?.data?.tokens?.accessToken?.token);
                 if (data?.success) {
-                    localStorage.setItem("token", data?.data?.tokens?.accessToken?.token);
                     toast.success(data?.message);
+                    localStorage.setItem("token", data?.data?.tokens?.accessToken?.token);
                     navigate("/home");
                 } else {
                     toast.error(data?.message);

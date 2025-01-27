@@ -13,7 +13,9 @@ export default function Layout() {
                 </div>
                 <div className={isMenuOpen  ? 'w-[94%] duration-300 ml-1' : 'w-[80%] duration-300 ml-1'}>
                     <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
-                    <Outlet />
+                    <div className='w-full min-h-[90vh] bg-[#fff] mt-1 pl-1 rounded-[8px]'>
+                        <Outlet />
+                    </div>
                 </div>
             </div>
         </>
