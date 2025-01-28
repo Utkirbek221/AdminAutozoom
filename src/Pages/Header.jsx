@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
-import { IoSettingsOutline } from "react-icons/io5";
+import { IoClose, IoSettingsOutline } from "react-icons/io5";
 import { PiSignOutFill } from "react-icons/pi";
 import { RxAvatar } from "react-icons/rx";
 import { TiEdit } from "react-icons/ti";
@@ -39,7 +39,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen }) {
   const proflcss = "flex justify-start items-center duration-300 rounded-[5px] hover:text-[#fff] hover:bg-[#222222] text-[#222222] gap-2 px-2 py-1 font-[600] text-lg cursor-pointer"
   return (
     <>
-      <div className="bg-[#ccd8fd] w-full h-[70px] rounded-[8px]">
+      <div className="bg-[#ccc5b9] w-full h-[70px] rounded-[8px]">
         <div className="flex justify-between items-center p-4">
           <div onClick={toggleMenu} className={`${isMenuOpen ? "rotate-180 duration-500 flex justify-center items-center gap-4 bg-[#fff] py-3 px-4 rounded-[8px]" : " duration-500  flex justify-center items-center gap-4 bg-[#fff] py-3 px-4 rounded-[8px]"}`} >
             <FaArrowLeft />
@@ -75,11 +75,14 @@ export default function Header({ isMenuOpen, setIsMenuOpen }) {
       )}
       {logaout && (
         <div className="fixed top-0 bottom-0 right-0 left-0 bg-[#22222251] z-50 flex justify-center items-center duration-500 rounded-[8px]">
-          <div className="border-2 border-[#222222] bg-[#fff] duration-500  w-auto h-auto rounded-[6px] p-5 flex flex-col gap-1">
+          <div className="border-2 border-[#222222] bg-[#fff] duration-500  w-auto h-auto rounded-[6px] p-5 flex flex-col gap-1 relative">
+            <div onClick={toggleLogaout} className="cursor-pointer absolute -top-2 -right-2 text-xl bg-[#fff] border-[2px] border-[#222222] rounded-[50%]">
+              <IoClose />
+            </div>
             <h1 className="text-xl font-[700] mb-10">ARE YOU SURE?</h1>
             <div className="gap-3 flex">
-              <button onClick={toggleLogaout} className="duration-500 bg-[#222222] text-[#fff] hover:text-[green] hover:bg-[#c3fcc3] px-3 py-1 rounded-[8px]">NO</button>
-              <button onClick={clickLogout} className="duration-500 bg-[#222222] text-[#fff] hover:text-[red] hover:bg-[#fbd0d0] px-3 py-1 rounded-[8px]">YES</button>
+              <button onClick={toggleLogaout} className="cursor-pointer duration-500 bg-[#222222] text-[#fff] hover:text-[green] hover:bg-[#c3fcc3] px-3 py-1 rounded-[8px]">NO</button>
+              <button onClick={clickLogout} className="cursor-pointer duration-500 bg-[#222222] text-[#fff] hover:text-[red] hover:bg-[#fbd0d0] px-3 py-1 rounded-[8px]">YES</button>
             </div>
           </div>
         </div>

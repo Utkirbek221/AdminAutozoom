@@ -16,9 +16,9 @@ export default function Sidebar({ isMenuOpen }) {
             ? "duration-300 flex justify-center items-center bg-[#222222] text-[#fff] mt-3 p-3 rounded-[8px] font-[800] text-2xl duration-200"
             : "duration-300 flex justify-center items-center bg-[#fff] text-[#000] mt-3 p-3 rounded-[8px] font-[800] text-3xl hover:bg-[#222222] hover:text-[#fff] duration-200";
     return (
-        <div className="bg-[#ccd8fd] min-h-full rounded-[8px] w-full flex flex-col">
+        <div className="bg-[#ccc5b9] min-h-full rounded-[8px] w-full flex flex-col">
             <div className="p-3">
-                <Link to={"/home"} className={isMenuOpen ? "duration-300  flex items-center justify-center gap-5 bg-[#222222] text-[#fff] p-2 rounded-[8px] mb-15 h-[80px]" : "duration-300  flex items-center justify-start gap-5 bg-[#222222] text-[#fff] p-2 rounded-[8px] mb-15 h-[80px]"}>
+                <Link to={"/home"} className={isMenuOpen ? "duration-300  flex items-center justify-center gap-5 bg-[#fff] text-[#fff] p-2 rounded-[8px] mb-15 h-[80px]" : "duration-300  flex items-center justify-start gap-5 bg-[#fff] text-[] p-2 rounded-[8px] mb-15 h-[80px]"}>
                     <div className="w-[45px] h-[50px] overflow-hidden flex items-center justify-center bg-[#fff] rounded-[8px]">
                         <img src={logo} alt="" className="min-w-[110px] min-h-[80px] object-cover " />
                     </div>
