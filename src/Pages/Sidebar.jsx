@@ -25,10 +25,10 @@ export default function Sidebar({ isMenuOpen }) {
                     <h1 className={isMenuOpen ? "hidden" : "font-[900] text-xl mr-4"}>AdminAutozoom</h1>
                 </Link>
                 <div>
-                    <NavLink className={isMenuOpen ? linkClasses2 : linkClasses} to={"/home/dashboard"}>
+                    {/* <NavLink className={isMenuOpen ? linkClasses2 : linkClasses} to={"/home/dashboard"}>
                         <FaHome className="text-2xl" />
                         <h1 className={isMenuOpen ? "hidden" : ""}>Dashboard</h1>
-                    </NavLink>
+                    </NavLink> */}
                     <NavLink className={isMenuOpen ? linkClasses2 : linkClasses} to={"/home/brands"}>
                         <TbBrandSketch className="text-2xl" />
                         <h1 className={isMenuOpen ? "hidden" : ""}>Brands</h1>

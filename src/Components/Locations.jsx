@@ -4,15 +4,17 @@ import { useFetch } from "../Pages/useFetch";
 
 export default function Locations() {
   const token = localStorage.getItem("token");
-  const { data: locations, loading, error } = useFetch(
+  const { data: locations, loading, error, fetchData } = useFetch(
     "https://realauto.limsa.uz/api/locations",
     token
   );
 
   if (loading) {
-    return <div className="w-full h-screen flex justify-center items-center">
-      <Commet color="#000000" size="medium" />
-    </div>;
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <Commet color="#000000" size="medium" />
+      </div>
+    );
   }
 
   if (error) {
@@ -20,17 +22,17 @@ export default function Locations() {
   }
 
   return (
-    <div className="p-3 ">
+    <div className="p-3">
       <Table
+        onDelete="locations"
         items={locations}
+        img={[{ key: "images", label: "Images" }]}
         columns={[
           { key: "name", label: "Brand" },
-          { key: "images", label: "Description" },
           { key: "text", label: "Description" },
         ]}
+        fetchData={fetchData} 
       />
     </div>
   );
 }
-
-

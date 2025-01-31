@@ -1,9 +1,18 @@
 import Header from '../Pages/Header'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import Sidebar from '../Pages/Sidebar'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Layout() {
+    const token = localStorage.getItem("token");
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (token) {
+            navigate("/home");
+        }else{
+            navigate("/")
+        }
+    },[])
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     return (
         <>

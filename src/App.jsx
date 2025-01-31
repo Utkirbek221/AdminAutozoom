@@ -12,7 +12,7 @@ import Settings from "./Components/Settings";
 import Dashboard from "./Components/Dashboard";
 
 function App() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token"); 
   const router = createBrowserRouter([
     {
       path: "/",

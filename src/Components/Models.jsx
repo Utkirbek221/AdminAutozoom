@@ -4,8 +4,13 @@ import { useFetch } from "../Pages/useFetch";
 
 export default function Models() {
   const token = localStorage.getItem("token");
-  const { data: models, loading, error } = useFetch(
+  const { data: models, loading, error, fetchData } = useFetch(
     "https://realauto.limsa.uz/api/models",
+    token
+  );
+
+  const { data: brands } = useFetch(
+    "https://realauto.limsa.uz/api/brands",
     token
   );
 
@@ -24,11 +29,15 @@ export default function Models() {
   return (
     <div className="p-3">
       <Table
+        onDelete="models"
         items={models}
         columns={[
-          { key: "brand_id", label: "ID" },
           { key: "name", label: "Model" },
         ]}
+        select={[
+          { key: "brand_id", label: "Brand", options: brands },
+        ]}
+        fetchData={fetchData}
       />
     </div>
   );

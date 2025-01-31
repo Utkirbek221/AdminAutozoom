@@ -4,7 +4,7 @@ import { useFetch } from "../Pages/useFetch";
 
 export default function Cities() {
   const token = localStorage.getItem("token");
-  const { data: cities, loading, error } = useFetch(
+  const { data: cities, loading, error, fetchData } = useFetch(
     "https://realauto.limsa.uz/api/cities",
     token
   );
@@ -22,12 +22,14 @@ export default function Cities() {
   return (
     <div className="p-3 ">
       <Table
+      onDelete="cities"
         items={cities}
+        img={[{ key: "images", label: "Images" }]}
         columns={[
           { key: "name", label: "Brand" },
-          { key: "images", label: "Description" },
           { key: "text", label: "Description" },
         ]}
+        fetchData={fetchData}
       />
     </div>
   );

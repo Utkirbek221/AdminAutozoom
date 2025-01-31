@@ -4,30 +4,29 @@ import { useFetch } from "../Pages/useFetch";
 
 export default function Settings() {
     const token = localStorage.getItem("token");
-    const { data: settings, loading, error } = useFetch(
+    const { data: categories, loading, error, fetchData } = useFetch(
         "https://realauto.limsa.uz/api/categories",
         token
     );
-
     if (loading) {
         return <div className="w-full h-screen flex justify-center items-center">
             <Commet color="#000000" size="medium" />
         </div>;
     }
-
     if (error) {
         return <div>Xatolik yuz berdi: {error}</div>;
     }
-
     return (
         <div className="p-3 ">
             <Table
-                items={settings}
+                onDelete="categories"
+                items={categories}
                 columns={[
-                    { key: "name_ru", label: "Name" },
-                    { key: "name_uz", label: "Name" },
-                    { key: "images", label: "Img" },
+                    { key: "name_en", label: "NameEn" },
+                    { key: "name_ru", label: "NameRu" },
                 ]}
+                img={[{ key: "images", label: "Images" }]}
+                fetchData={fetchData}
             />
         </div>
     );
