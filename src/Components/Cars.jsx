@@ -20,7 +20,6 @@ export default function Cars() {
   const formattedCars = cars.map(car => ({
     ...car,
     city_name: car.city?.name,
-    city_slug: car.city?.slug,
     city_image: car.city?.image_src,
     barnd_title: car.brand?.title,
   }));
@@ -32,7 +31,6 @@ export default function Cars() {
         imgs={[{ key: "city_image", label: "Image" }]}
         columns={[
           { key: "city_name", label: "Brand" },
-          { key: "city_slug", label: "Slug" },
           { key: "barnd_title", label: "Model" },
         ]}
       />
