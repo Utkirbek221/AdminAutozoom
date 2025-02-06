@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Components/Layout";
 import ErrorPage from "./Components/ErrorPage";
 import Login from "./Components/Login";
@@ -12,7 +12,7 @@ import Settings from "./Components/Settings";
 import Dashboard from "./Components/Dashboard";
 
 function App() {
-  const token = localStorage.getItem("token"); 
+
   const router = createBrowserRouter([
     {
       path: "/",

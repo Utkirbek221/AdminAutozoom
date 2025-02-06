@@ -136,20 +136,20 @@ export default function Table({ items = [], columns = [], img = [], img2 = [], c
               <th key={key} className="border p-2">
                 {label}
               </th>
-              
+
             ))}
             <th className="border p-2">Amallar</th>
           </tr>
         </thead>
         <tbody>
-          {items.map(({ id, image_src, ...rest }) => (
+          {items.map(({ id, image_src, car_images, ...rest }) => (
             <tr key={id} className="border">
               {img.length > 0 && (
                 <td className="border p-2 text-center">
                   <div className="flex justify-center items-center w-full">
                     <img
-                      src={`https://realauto.limsa.uz/api/uploads/images/${image_src }`}
-                      className="w-[150px] object-cover rounded-md"
+                      src={`https://realauto.limsa.uz/api/uploads/images/${image_src || car_images[0]?.image?.src}`}
+                      className="w-[150px] h-[100px] object-cover rounded-md"
                       alt="Rasm"
                     />
                   </div>
@@ -248,7 +248,7 @@ export default function Table({ items = [], columns = [], img = [], img2 = [], c
                         <img src={URL.createObjectURL(newImg)} className="object-cover w-full h-full" alt="Yuklangan rasm" />
                       ) : (
                         <img
-                          src={`https://realauto.limsa.uz/api/uploads/images/${newData.image_src || newData.brand?.image_src}`}
+                          src={`https://realauto.limsa.uz/api/uploads/images/${newData.image_src || newData.car_images?.[0]?.image?.src}`}
                           className="object-cover w-full h-full"
                         />
                       )}
@@ -273,7 +273,7 @@ export default function Table({ items = [], columns = [], img = [], img2 = [], c
                         <img src={URL.createObjectURL(newImg2)} className="object-cover w-full h-full" alt="Yuklangan rasm" />
                       ) : (
                         <img
-                          src={`https://realauto.limsa.uz/api/uploads/images/${newData.image_src || newData.brand?.image_src}`}
+                          src={`https://realauto.limsa.uz/api/uploads/images/${newData.car_images?.[1]?.image?.src}`}
                           className="object-cover w-full h-full"
                         />
                       )}
@@ -298,7 +298,7 @@ export default function Table({ items = [], columns = [], img = [], img2 = [], c
                         <img src={URL.createObjectURL(coverImg)} className="object-cover w-full h-full" alt="Yuklangan cover" />
                       ) : (
                         <img
-                          src={`https://realauto.limsa.uz/api/uploads/images/${newData.cover || newData.brand?.cover}`}
+                          src={`https://realauto.limsa.uz/api/uploads/images/${newData.car_images?.[2]?.image?.src}`}
                           className="object-cover w-full h-full"
                         />
                       )}
@@ -319,7 +319,7 @@ export default function Table({ items = [], columns = [], img = [], img2 = [], c
               ))}
               {/* Forma maydonlari */}
               <div className={`${columns.length > 4 ? "grid grid-cols-5 gap-3 mt-5 " : "mt-5 mb-7"}`}>
-                {columns.map(({ key, label }) => (
+                {columns.map(({ key, label, pls }) => (
                   <div key={key} className={`${columns.length > 4 ? "" : "flex justify-between items-center gap-3 mb-4"}`}>
                     <h1 className="font-bold text-lg">{label}:</h1>
                     <input
@@ -327,7 +327,7 @@ export default function Table({ items = [], columns = [], img = [], img2 = [], c
                       onChange={(e) => setNewData((prev) => ({ ...prev, [key]: e.target.value }))}
                       required
                       placeholder={label}
-                      type="text"
+                      type={pls ? "number" : "text"}
                       className="border-2 border-gray-700 px-2 py-1 rounded"
                     />
                   </div>
