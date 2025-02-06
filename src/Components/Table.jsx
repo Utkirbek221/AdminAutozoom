@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 import { TiEdit, TiTrash } from "react-icons/ti";
 import { ThreeDot } from "react-loading-indicators";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Table({ items = [], columns = [], img = [], img2 = [], cover = [], onDelete, select = [], fetchData, box }) {
@@ -112,7 +112,6 @@ export default function Table({ items = [], columns = [], img = [], img2 = [], c
       });
   };
 
-  console.log(items);
 
   return (
     <div className="w-full ">
@@ -137,6 +136,7 @@ export default function Table({ items = [], columns = [], img = [], img2 = [], c
               <th key={key} className="border p-2">
                 {label}
               </th>
+              
             ))}
             <th className="border p-2">Amallar</th>
           </tr>
@@ -148,7 +148,7 @@ export default function Table({ items = [], columns = [], img = [], img2 = [], c
                 <td className="border p-2 text-center">
                   <div className="flex justify-center items-center w-full">
                     <img
-                      src={`https://realauto.limsa.uz/api/uploads/images/${image_src}`}
+                      src={`https://realauto.limsa.uz/api/uploads/images/${image_src }`}
                       className="w-[150px] object-cover rounded-md"
                       alt="Rasm"
                     />
@@ -369,6 +369,8 @@ export default function Table({ items = [], columns = [], img = [], img2 = [], c
           </div>
         </div>
       )}
+      <ToastContainer />
     </div>
+
   );
 }
