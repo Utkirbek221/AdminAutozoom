@@ -28,8 +28,8 @@ export default function Locations() {
         items={locations}
         img={[{ key: "images", label: "Images" }]}
         columns={[
-          { key: "name", label: "Brand" },
-          { key: "text", label: "Description" },
+          { key: "name", label: "Name" },
+          { key: "text", label: "Ta'rif" },
         ]}
         fetchData={fetchData} 
       />

@@ -22,13 +22,14 @@ export default function Cities() {
   return (
     <div className="p-3 ">
       <Table
-      onDelete="cities"
+        onDelete="cities"
         items={cities}
         img={[{ key: "images", label: "Images" }]}
         columns={[
-          { key: "name", label: "Brand" },
-          { key: "text", label: "Description" },
+          { key: "name", label: "Name" },
+          { key: "text", label: "Ta'rif" },
         ]}
+        
         fetchData={fetchData}
       />
     </div>

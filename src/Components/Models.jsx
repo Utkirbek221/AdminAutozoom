@@ -32,7 +32,7 @@ export default function Models() {
         onDelete="models"
         items={models}
         columns={[
-          { key: "name", label: "Model" },
+          { key: "name", label: "Name" },
         ]}
         select={[
           { key: "brand_id", label: "Brand", options: brands },
